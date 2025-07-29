@@ -52,6 +52,35 @@ Anomaly detection in queries aims to identify query records that deviate signifi
 - Principal Component Analysis (PCA)
 - TF - IDF vectorisation
 
+### Methodology
+This project implements a query anomaly detection pipeline using Natural Language Processing (NLP) and machine learning. The process includes:
+
+### Preprocessing
+
+All queries are converted to lowercase.
+Punctuation and numbers are removed.
+Stopwords are filtered out with NLTK.
+Lemmatization is performed using spaCy.
+Words with ≤2 characters are discarded.
+Boost Words
+
+A set of "boost words" (e.g., hacked, phishing, breach, bomb, vpn, alert) is used to highlight queries likely to be anomalous or security-relevant.
+TF-IDF Vectorization
+
+Preprocessed queries are tokenized and converted into TF-IDF vectors.
+This encodes the importance and uniqueness of each word in the context of the entire dataset.
+Anomaly Scoring
+
+Queries are scored using their TF-IDF representation, with additional weight given to queries containing boost words.
+These scores can be used for downstream tasks like clustering, thresholding, or visualization.
+Results
+Data Summary:
+
+Total queries: 12,613
+Unique words (vocabulary): 3,549
+TF-IDF matrix shape: (12613, 3549)
+Sample Preprocessed Queries:
+
 ---
 
 ## Getting Started
